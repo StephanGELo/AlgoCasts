@@ -5,14 +5,40 @@
 // maxChar("abcccccccd") === "c"
 // maxChar("apple 1231111") === "1"
 
+// solution 1
+// const maxChar = (str) => {
+//   let charMap = {};
+//   let max = 0;
+//   let maxChar = "";
+//
+//   for (let char of str) {
+//     if(charMap[char]) {
+//       charMap[char]++;
+//     } else {
+//       charMap[char] = 1;
+//     }
+//   }
+//
+//   for (let char in charMap) {
+//     if(charMap[char] > max) {
+//       max = charMap[char];
+//       maxChar = char;
+//     }
+//   }
+//
+//   return maxChar;
+// }
+
+// Solution 2
 function maxChar(str) {
-  let chars = {};
+  let charMap = {};
 
   for (let char of str) {
-    chars[char] = chars[char] + 1 || 1;
+    charMap[char] = charMap[char] + 1 || 1;
   }
 
-  return Object.keys(chars).reduce((a, b) => chars[a] > chars[b] ? a : b);
+  return Object.keys(charMap).reduce((a, b) => charMap[a] > charMap[b] ? a : b);
 }
+
 
 module.exports = maxChar;
