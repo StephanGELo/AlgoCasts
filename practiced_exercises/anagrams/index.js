@@ -40,7 +40,7 @@
 //   return charMap;
 // }
 
-// Solution 2
+// Solution2
 function anagrams(stringA, stringB) {
   return cleanStr(stringA) === cleanStr(stringB);
 };
